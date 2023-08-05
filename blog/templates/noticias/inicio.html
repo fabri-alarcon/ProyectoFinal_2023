@@ -5,6 +5,23 @@
 
 {% block contenido%}
 
+
+      
+<aside>
+    <div class="p-4">
+        <h3 class="fst-italic">Categorias</h3>
+        <ol class="list-unstyled mb-0">
+
+            <li><a href="{% url 'noticias:inicio' %}"> Todas</a></li>
+            <li>{% for c in categorias %}
+                <a href="?id={{c.pk}}">{{c.nombre}}</a>
+                {% endfor %}
+            </li>
+        </ol>
+    </div>
+    </div>
+</aside>
+</div>
 {% block barra_busqueda %}
 
     <div class="container">
@@ -26,23 +43,6 @@
 
       </div>
 {% endblock barra_busqueda %}
-      
-<aside>
-    <div class="p-4">
-        <h3 class="fst-italic">Categorias</h3>
-        <ol class="list-unstyled mb-0">
-
-            <li><a href="{% url 'noticias:inicio' %}"> Todas</a></li>
-            <li>{% for c in categorias %}
-                <a href="?id={{c.pk}}">{{c.nombre}}</a>
-                {% endfor %}
-            </li>
-        </ol>
-    </div>
-    </div>
-</aside>
-</div>
-
 {% if user.is_superuser or user.is_staff %}
 
     <hr>
